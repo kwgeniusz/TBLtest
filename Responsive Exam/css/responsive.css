@@ -1,0 +1,37 @@
+/*/ RESPONSIVE
+   ========================================================================= /*/
+/* 
+
+/ Móviles en horizontal 
+   ------------------------------------------------------------------------- /*/
+@media (max-width: 454px) { 
+
+h2 .text-vertical-center h1, .text-vertical-center h3, aside.call-to-action.bg-primary h1, aside.call-to-action.bg-primary h2, aside.call-to-action.bg-primary h3 {
+    margin: 0;
+    width: 100%;
+ }
+section#about .col-lg-12 {
+    width: 100%;
+}
+
+.blk {
+	width:0 100%;
+}
+}
+ 
+/*/ Móviles en horizontal o tablets en vertical
+   ------------------------------------------------------------------------- /*/
+@media (max-width: 754px) { 
+}
+ 
+/*/ Tablets en horizonal y escritorios normales
+   ------------------------------------------------------------------------- /*/
+@media (max-width: 954px) { 
+
+}
+ 
+/*/ Escritorios muy anchos
+   ------------------------------------------------------------------------- */*/
+@media (min-width: 1200px) {
+
+ }

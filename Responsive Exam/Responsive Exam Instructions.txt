@@ -1,0 +1,15 @@
+1. DON'T EDIT index.html
+- We will know if you edited it, we have backups. You will lose big points.
+
+2. DON'T EDIT style.css
+- We will know if you edited it, we have backups. You will lose big points.
+
+3. USE ONLY responsive.css
+- Use only responsive.css file given to make this website responsive.
+
+4. FREE TO ASK ON GOOGLE
+- You can search any help in google on how to make this website responsive.
+
+5. If you are done, return the whole file (zipped) and submit it to us.
+
+Goodluck :)
