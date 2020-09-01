@@ -5,20 +5,28 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                 <div class="text-center">
-                    <button class="btn btn-primary">New Contact</button>
-                 </div>
+                  <div class="text-right">
+                    <a class="btn btn-primary" href="{{route('contacts.create')}}">New Contact</a>
+                  </div>
 
-                <div class="panel-heading">Contacts List</div>
-                {{-- <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
-                    You are logged in! --}}
+   <div class="row">
+      <div class="col-xs-12 text-center">
+      <form class="form-inline" action="{{Route('home')}}" method="GET">
 
+         <div class="form-group">
+           <label for="filteredOut"></label>
+           <input type="text" class="form-control" name="filteredOut" id="filteredOut" placeholder="Write data..." autocomplete="off">
+         </div>
+
+          <button type="submit" class="btn btn-info" > Search
+           </button>
+        </form>
+      </div>
+    </div>
+
+<div class="panel-heading"><h4 class="text-center">Contacts List</h4></div>
+<div class="table-responsive">
 <table class="table table-striped">
   <thead>
     <tr>
@@ -27,32 +35,41 @@
       <th scope="col">Last Name</th>
       <th scope="col">Email</th>
       <th scope="col">Contact Number</th>
+      <th scope="col">Options</th>
     </tr>
   </thead>
   <tbody>
+
+@php $acum=0 @endphp
+@foreach($contacts as $contact)
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>(123) 123-7890</td>
+      <th scope="row">{{++$acum}}</th>
+      <td>{{$contact->firstName}}</td>
+      <td>{{$contact->lastName}}</td>
+      <td>{{$contact->email}}</td>
+      <td>{{$contact->contactNumber}}</td>
+      <td>       
+        <a href="{{route('contacts.edit', ['id' => $contact->contactId])}}" class="btn btn-warning btn-sm">
+                        EDIT
+          </a> 
+             <a href="#" class="btn btn-danger btn-sm" onclick="event.preventDefault();document.getElementById('delete-form'+{{$contact->contactId}}).submit();">
+                                            DELETE 
+                 </a>
+              <form id="delete-form{{$contact->contactId}}" action="{{route('contacts.destroy', ['id' => $contact->contactId])}}" method="POST" style="display: none;">
+                     {{ csrf_field() }}
+                     {{ method_field('DELETE') }}
+                 </form>
+          </td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>(123) 456–3431</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-      <td>(123) 646–7890</td>
-    </tr>
+@endforeach
+
   </tbody>
 </table>
+</div>
+            <div class="text-center">
+                {{$contacts->render()}}
+            </div>
+
                 </div>
             </div>
         </div>

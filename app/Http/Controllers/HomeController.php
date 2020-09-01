@@ -1,19 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Contact;
 
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+     private $oContact;
+
     public function __construct()
     {
         $this->middleware('auth');
+        $this->oContact = new Contact;
     }
 
     /**
@@ -21,8 +20,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        $contacts = $this->oContact->getAll($request->filteredOut);
+        return view('home', compact('contacts'));
     }
 }
