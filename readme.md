@@ -53,7 +53,8 @@ PUSHER_APP_CLUSTER=mt1
 
 -In the project directory, you must run: `npm start` to the Frontend Technologies.
 -you must run: `composer Install` to the Frontend Technologies.
--star
+-start your APP with the command `php artisan serve`
+-open yout browser with the address "127.0.0.1"
 
 ## License
 
